@@ -19,9 +19,11 @@ npm install
 How to use Start the server
 
 initializing the front-end
+
 npm run dev
 
 initializing the back-end
+
 npm run server
 
 After installing the dependencies and starting the servers, just access the address that appears in your terminal (usually http://localhost:5173/) The site has a protection system so that users who are not logged in do not have access to pages other than the Login page, so you will be immediately redirected to it, the user and password are:
