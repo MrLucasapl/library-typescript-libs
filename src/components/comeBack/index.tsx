@@ -4,15 +4,16 @@ import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import { StyleComeBack } from './style';
 
 interface ComeBackProps {
+id?: string;
 to: string;
 value: string;
 }
 
-const ComeBack = ({ to, value }: ComeBackProps) => {
+const ComeBack = ({ id, to, value }: ComeBackProps) => {
 	return (
 		<StyleComeBack>
-			<Link to={to}>
-				<ArrowBackIosOutlinedIcon sx={{fontSize: 22}} /> Home <strong>/ {value}</strong>
+			<Link to={ id ? `${to}/${id}` : to}>
+				<ArrowBackIosOutlinedIcon sx={{fontSize: 22}} /> {id? 'Biblioteca': 'Home'} <strong>/ {value}</strong>
 			</Link>
 		</StyleComeBack>
 	);

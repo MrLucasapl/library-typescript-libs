@@ -1,5 +1,5 @@
 import React from 'react';
-import { IButtonsProps } from '../../global';
+import { IButtonsProps } from 'global';
 import { StyledButton } from './style.js';
 
 const BasicButtons = (format: IButtonsProps) => {

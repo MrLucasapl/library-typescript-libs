@@ -5,13 +5,14 @@ import { StyleRentHistory } from '../style';
 import { convertDate } from '../../../util/convertDate';
 import ImgFilter from '../../../assets/tabela-filtro.png';
 import { useOrdering } from '../../../hooks/ordering';
+import CloseModal from '../closeModal';
 
 interface IRowfilter {
 	id: string;
 	onClick: () => void;
 }
 
-const RentHistoryBookModal = ({ bookId }: MainModalProps) => {
+const RentHistoryBookModal = ({ bookId, handleChangeModal }: MainModalProps) => {
 
 	const rentKeyOf = ['studentName', 'class', 'withdrawalDate', 'deliveryDate'];
 	
@@ -78,6 +79,7 @@ const RentHistoryBookModal = ({ bookId }: MainModalProps) => {
 	function ProductTable() {
 		return (
 			<React.Fragment>
+				<CloseModal onClick={()=>handleChangeModal('rentHistory','main')} />
 				<div className='box-title'>
 					<h1>Histórico de empréstimos do livro</h1>
 				</div>

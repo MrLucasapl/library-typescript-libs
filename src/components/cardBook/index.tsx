@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ibooks } from '../../global';
+import { Ibooks } from 'global';
 import { CardBookStyled } from './style';
 
 interface CardBookProps {

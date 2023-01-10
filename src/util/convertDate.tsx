@@ -1,4 +1,4 @@
-import { IrentHistory } from '../global';
+import { IrentHistory } from 'global';
 
 export const convertDate = (data: string) => {
 	const newDate = new Date(data).setHours(24);

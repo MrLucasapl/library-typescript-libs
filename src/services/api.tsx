@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Ibooks } from '../global';
+import { Ibooks } from 'global';
 
 const url = 'http://localhost:3000/';
 

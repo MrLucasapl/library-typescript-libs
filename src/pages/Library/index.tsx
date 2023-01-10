@@ -1,15 +1,16 @@
 import React from 'react';
-import CardBook from '../../components/cardBook';
-import ComeBack from '../../components/comeBack';
-import Head from '../../components/head';
-import { Ibooks } from '../../global';
+import CardBook from 'components/cardBook';
+import ComeBack from 'components/comeBack';
+import Head from 'components/head';
+import { Ibooks } from 'global';
 import SearchIcon from '@mui/icons-material/Search';
-import { getAllBooks } from '../../services/api';
+import { getAllBooks } from 'services/api';
 import { LibraryStyles, TextFieldMui } from './style';  
-import BasicButtons from '../../components/button';
+import BasicButtons from 'components/button';
 import { InputLabel, Select, MenuItem, FormControl } from '@mui/material';
-import { filterBooks } from '../../util/filterBooks';
-import Modal from '../../components/modal';
+import { filterBooks } from 'util/filterBooks';
+import Modal from 'components/modal';
+import { useParams } from 'react-router-dom';
 
 type TInputField = {
 	name: string;
@@ -28,6 +29,7 @@ const inputField: TInputField[]  = [
 ];
 
 const Library = () => {
+	const {id} = useParams();
 
 	const { showModal, handleClickModal} = Modal();
 
@@ -50,6 +52,12 @@ const Library = () => {
 			});
 	}, []);
 
+	React.useEffect(() => {
+		if (id) {
+			handleClickModal(id);
+		}
+	}, []);
+
 	const handleChange = ({target}: React.ChangeEvent<HTMLInputElement>) => {
 		setformSave({ ...formSave, [target.name]: target.value });
 	};
@@ -68,7 +76,7 @@ const Library = () => {
 			/>
 			<ComeBack
 				to="/home"
-				value="Cadastrar novo livro"
+				value="Biblioteca"
 			/>
 			<form className="box-component" onSubmit={handleSubmit}>
 				<div className='box-search'>
@@ -76,7 +84,7 @@ const Library = () => {
 						InputProps={{startAdornment: (<SearchIcon sx={{color: '#ADB5BD', marginRight: '5px'}}/>)}}
 						label=''
 						name='search'
-						placeholder='E-mail'
+						placeholder='Pesquisar livro...'
 						variant='outlined'
 						autoComplete='off'
 						value={formSave.search}

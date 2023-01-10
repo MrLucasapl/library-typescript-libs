@@ -1,10 +1,10 @@
 import React from 'react';
-import CardHome from '../../components/cardHome';
-import ImgAdd from '../../assets/add.png';
-import ImgBook from '../../assets/book.png';
-import ImgHistori from '../../assets/historico.png';
+import CardHome from 'components/cardHome';
+import ImgAdd from 'assets/add.png';
+import ImgBook from 'assets/book.png';
+import ImgHistori from 'assets/historico.png';
 import { HomeStyle } from './style';
-import Head from '../../components/head';
+import Head from 'components/head';
 
 const Home = () => {
 	return (

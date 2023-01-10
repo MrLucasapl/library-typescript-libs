@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/Logo.png';
+import Logo from 'assets/Logo.png';
 import PersonIcon from '@mui/icons-material/Person';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { HeaderStyle } from './style';

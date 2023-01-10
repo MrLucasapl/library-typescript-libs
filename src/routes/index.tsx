@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Layout from '../components/Layout';
-import Login from '../pages/login';
-import Home from '../pages/home';
-import Library from '../pages/Library';
-import AddEdit from '../pages/addEdit';
-import RentHistoryBook from '../pages/loan';
+import Layout from 'components/Layout';
+import Home from 'pages/home';
+import Library from 'pages/Library';
+import AddEdit from 'pages/addEdit';
+import RentHistoryBook from 'pages/loan';
+import Login from 'pages/login';
 
 const Dors = () => {
 	return (
@@ -20,7 +20,7 @@ const Dors = () => {
 							<Route path="/" element={<AddEdit />} />
 						</Routes>
 					} />
-					<Route path="/home/biblioteca" element={<Library />} />
+					<Route path="/home/biblioteca/:id?" element={<Library />} />
 					<Route path="/home/historico" element={<RentHistoryBook />} />
 				</Route>
 			</Routes>

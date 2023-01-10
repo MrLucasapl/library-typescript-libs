@@ -1,4 +1,4 @@
-import { Ibooks } from '../global';
+import { Ibooks } from 'global';
 import { bookWithoutAccent } from './bookWithoutAccent';
 import { convertDate } from './convertDate';
 

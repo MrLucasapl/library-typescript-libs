@@ -3,6 +3,7 @@ import React from 'react';
 import { Ibooks, MainModalProps } from '../../../global';
 import { getBookId, putBookId } from '../../../services/api';
 import BasicButtons from '../../button';
+import CloseModal from '../closeModal';
 import { InputDescription, StyleInactivate } from '../style';
 import { initialValuesInactivate, validationSchemaInactivate } from '../validation';
 
@@ -39,6 +40,7 @@ const InactivateBookModal = ({ bookId, handleChangeModal }: MainModalProps) => {
 	if (book) {
 		return (
 			<StyleInactivate>
+				<CloseModal onClick={()=>handleChangeModal('inactive','main')} />
 				<div>
 					<h1>Inativar Livro</h1>
 				</div>

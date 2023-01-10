@@ -8,6 +8,10 @@ export const StyledModal = muistyled(Box)({
 	'.box-closeModal': {
 		display: 'flex',
 		justifyContent: 'right',
+
+		'.icon-close': {
+			cursor: 'pointer',
+		},
 	},
 
 	'.box-content': {
@@ -106,6 +110,12 @@ export const StyledModal = muistyled(Box)({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'space-between',
+
+		'.box-alternative':{
+			display: 'flex',
+			width: '60%',
+			justifyContent: 'space-evenly',
+		}
 	},
 });
 

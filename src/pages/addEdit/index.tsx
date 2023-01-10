@@ -1,17 +1,15 @@
 import React from 'react';
 import { InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
-import BasicButtons from '../../components/button';
-import ComeBack from '../../components/comeBack';
-import Head from '../../components/head';
-import { Ibooks } from '../../global';
+import BasicButtons from 'components/button';
+import ComeBack from 'components/comeBack';
+import Head from 'components/head';
+import { Ibooks } from 'global';
 import { AddEditStyle, FormControlMui, InputFileStyled, TextFieldMui } from './style';
-import { getBookId, postBook, putBookId } from '../../services/api';
+import { getBookId, postBook, putBookId } from 'services/api';
 import { useParams } from 'react-router-dom';
-import { useFormik } from 'formik';
-import { convertBase64 } from '../../util/convertBase64';
+import { convertBase64 } from 'util/convertBase64';
 import { validationSchema } from './validation';
-import { AlertCustomized } from '../../components/alert';
-import { convertDate } from '../../util/convertDate';
+import { useFormik } from 'formik';
 
 const structureBook: Ibooks = {
 	'id': '',
@@ -125,8 +123,9 @@ const AddEdit = () => {
 					description='O usuário com permissão pode adicionar um novo livro a plataforma.'
 				/>
 				<ComeBack
-					to='/home'
-					value='Cadastrar novo livro'
+					id={id}
+					to={id? '/home/biblioteca' : '/home'}
+					value={id? 'Editar livro' : 'Cadastrar novo livro'}
 				/>
 				<div id='Box-Form'>
 					<form onSubmit={formik.handleSubmit}>
@@ -235,11 +234,11 @@ const AddEdit = () => {
 							}}
 							value={book.systemEntryDate}
 							onChange={({target}: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
-								setBook({ ...book, [target.id]: target.value });
+								setBook({ ...book, [target.id]: target.value});
 								formik.handleChange({
 									target: {
 										name: target.id,
-										value: target.value,
+										value:target.value,
 									}
 								});
 							}}

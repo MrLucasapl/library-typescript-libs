@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from '../../assets/Logo.png';
-import BasicButtons from '../../components/button';
+import Logo from 'assets/Logo.png';
+import BasicButtons from 'components/button';
 import { useNavigate } from 'react-router-dom';
 import { BackgroundImg, BackgroundFilter, TextFieldMui } from './style';
 import { useFormik } from 'formik';
 import { initialValues, validationSchema } from './validation';
-import { getUser } from '../../services/api';
-import { AlertCustomized } from '../../components/alert';
+import { getUser } from 'services/api';
+import { AlertCustomized } from 'components/alert';
 
 const Login = () => {
 	const navigate = useNavigate();

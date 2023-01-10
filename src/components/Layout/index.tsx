@@ -1,6 +1,7 @@
+import Header from 'components/header';
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import Header from '../header';
+
 import { PagesStyle } from './style';
 
 interface IUser {

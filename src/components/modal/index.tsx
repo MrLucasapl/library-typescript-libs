@@ -1,6 +1,5 @@
 import React from 'react';
 import Dialog from '@mui/material/Dialog';
-import CloseIcon from '@mui/icons-material/Close';
 import { StyledModal } from './style';
 import MainModal from './mods/mainModal';
 import LendBookModal from './mods/lendBookModal';
@@ -55,9 +54,6 @@ const Modal = () => {
 				onClose={handleClose}
 			>
 				<StyledModal sx={style}>
-					<div className='box-closeModal'>
-						<CloseIcon onClick={handleClose}/>
-					</div>
 					<>
 						{modal.main && (
 							<MainModal

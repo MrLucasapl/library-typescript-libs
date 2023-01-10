@@ -6,6 +6,7 @@ import BasicButtons from '../../button';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { useNavigate } from 'react-router-dom';
 import { checkBorrowedBook } from '../../../util/convertDate';
+import CloseModal from '../closeModal';
 
 const MainModal = ({ bookId, handleChangeModal, handleClose }: MainModalProps) => {
 
@@ -67,6 +68,7 @@ const MainModal = ({ bookId, handleChangeModal, handleClose }: MainModalProps) =
 	if(typeof book === 'object'&& book !== null && 'title' in book){
 		return (
 			<React.Fragment>
+				<CloseModal onClick={handleClose} />
 				<div className="box-content">
 					<img src={book.image} alt="imagem do livro" />
 					<div className="box-info">
@@ -113,51 +115,53 @@ const MainModal = ({ bookId, handleChangeModal, handleClose }: MainModalProps) =
 						<AutoStoriesIcon sx={{ fontSize: '2.3rem', padding: '0px 8px'}}/>  {borrowed? 'Devolver' : 'Emprestar'}
 					</BasicButtons>
 
-					<BasicButtons
-						width='101px'
-						height='53px'
-						bordercolor='#167CE2'
-						backgroundcolor='#FFFFFF'
-						type='button'
-						fontSize='0.9rem'
-						textcolor= '#167CE2'
-						onClick={() => navigate(`/home/addbook/${bookId}`)}
-					>
+					<div className="box-alternative">
+						<BasicButtons
+							width='101px'
+							height='53px'
+							bordercolor='#167CE2'
+							backgroundcolor='#FFFFFF'
+							type='button'
+							fontSize='0.9rem'
+							textcolor= '#167CE2'
+							onClick={() => navigate(`/home/addbook/${bookId}`)}
+						>
 						Editar
-					</BasicButtons>
+						</BasicButtons>
 
-					<BasicButtons
-						width='101px'
-						height='53px'
-						bordercolor= {isActive? '#ED5E5E' : '#49D749'}
-						backgroundcolor='#FFFFFF'
-						type='button'
-						fontSize='0.9rem'
-						textcolor= {isActive? '#ED5E5E' : '#49D749'}
-						onClick={() =>{
-							if (!isActive) {
-								return ActivateBook();
-							} else {
-								return handleChangeModal('main', 'inactive');
+						<BasicButtons
+							width='101px'
+							height='53px'
+							bordercolor= {isActive? '#ED5E5E' : '#49D749'}
+							backgroundcolor='#FFFFFF'
+							type='button'
+							fontSize='0.9rem'
+							textcolor= {isActive? '#ED5E5E' : '#49D749'}
+							onClick={() =>{
+								if (!isActive) {
+									return ActivateBook();
+								} else {
+									return handleChangeModal('main', 'inactive');
+								}
 							}
-						}
-						}
-					>
-						{isActive? 'Inativar' : 'Ativar'}
-					</BasicButtons>
+							}
+						>
+							{isActive? 'Inativar' : 'Ativar'}
+						</BasicButtons>
 
-					<BasicButtons
-						width='101px'
-						height='53px'
-						bordercolor='#ADB5BD'
-						backgroundcolor='#FFFFFF'
-						type='button'
-						fontSize='0.9rem'
-						textcolor= '#000000'
-						onClick={() => handleChangeModal('main', 'rentHistory')}
-					>
+						<BasicButtons
+							width='101px'
+							height='53px'
+							bordercolor='#ADB5BD'
+							backgroundcolor='#FFFFFF'
+							type='button'
+							fontSize='0.9rem'
+							textcolor= '#000000'
+							onClick={() => handleChangeModal('main', 'rentHistory')}
+						>
 						Histórico
-					</BasicButtons>
+						</BasicButtons>
+					</div>
 				</div>
 
 				{ borrowed && <div className='box-LoanBook'>

@@ -6,6 +6,7 @@ import BasicButtons from '../../button';
 import { TextFieldMui, StyleLend } from '../style';
 import { initialValuesLend, validationSchemaLend } from '../validation';
 import { useFormik } from 'formik';
+import CloseModal from '../closeModal';
 
 const LendBookModal = ({ bookId, handleChangeModal }: MainModalProps) => {
 
@@ -44,6 +45,7 @@ const LendBookModal = ({ bookId, handleChangeModal }: MainModalProps) => {
 	if (book) {
 		return (
 			<StyleLend>
+				<CloseModal onClick={()=>handleChangeModal('lent','main')} />
 				<div className="box-content">
 					<div className='box-text'>
 						<h1>Informe os dados do aluno antes de continuar</h1>
