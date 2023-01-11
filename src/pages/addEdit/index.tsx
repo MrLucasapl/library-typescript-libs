@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { convertBase64 } from 'util/convertBase64';
 import { validationSchema } from './validation';
 import { useFormik } from 'formik';
+import { convertDate } from 'util/convertDate';
 
 const structureBook: Ibooks = {
 	'id': '',
@@ -43,8 +44,12 @@ const AddEdit = () => {
 		if (id) {
 			getBookId(id)
 				.then((res) => {
-					setBook(res);
-					setBaseImg(res.image);
+					const newRes = {
+						...res,
+						systemEntryDate: convertDate(res.systemEntryDate)
+					};
+					setBook(newRes);
+					setBaseImg(newRes.image);
 				})
 				.catch((err) => {
 					console.log(err);
